@@ -1,0 +1,14 @@
+{
+    "name": "Ilinker",
+    "alias": "ilinker",
+    "version": "1.0.0",
+	"description": "",
+    "keywords": [],
+    "priority": 1,
+    "providers": [
+        "Modules\\Ilinker\\Providers\\IlinkerServiceProvider",
+        "Modules\\Ilinker\\Providers\\EventServiceProvider",
+        "Modules\\Ilinker\\Providers\\RouteServiceProvider"
+    ],
+    "files": []
+}
