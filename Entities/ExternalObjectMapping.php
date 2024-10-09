@@ -2,14 +2,11 @@
 
 namespace Modules\Ilinker\Entities;
 
-use Astrotomic\Translatable\Translatable;
 use Modules\Core\Icrud\Entities\CrudModel;
 
 class ExternalObjectMapping extends CrudModel
 {
-  use Translatable;
-
-  protected $table = 'ilinker__externalobjectmappings';
+  protected $table = 'ilinker__external_object_mappings';
   public $transformer = 'Modules\Ilinker\Transformers\ExternalObjectMappingTransformer';
   public $repository = 'Modules\Ilinker\Repositories\ExternalObjectMappingRepository';
   public $requestValidation = [
@@ -27,5 +24,10 @@ class ExternalObjectMapping extends CrudModel
     'deleted' => []
   ];
   public $translatedAttributes = [];
-  protected $fillable = [];
+  protected $fillable = ['entity_type', 'entity_id', 'external_object_id'];
+
+  public function externalObject()
+  {
+    return $this->hasOne(ExternalObject::class, 'external_object_id');
+  }
 }
